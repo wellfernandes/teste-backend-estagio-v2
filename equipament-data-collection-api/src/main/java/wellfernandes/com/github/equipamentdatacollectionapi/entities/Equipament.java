@@ -18,9 +18,10 @@ public class Equipament implements Serializable {
 	private Long id;
 
 	private String name;
-	
+	private EquipamentModel equipamentModelId = new EquipamentModel();
+
 	public Equipament() {
-		
+
 	}
 
 	public Equipament(Long id, String name) {
@@ -39,6 +40,10 @@ public class Equipament implements Serializable {
 
 	public Long getId() {
 		return id;
+	}
+
+	public EquipamentModel getEquipamentModelId() {
+		return equipamentModelId;
 	}
 
 	@Override
