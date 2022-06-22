@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,6 +23,12 @@ public class EquipamentResources {
 	public ResponseEntity<List<Equipament>> findAll() {
 		List<Equipament> listEquipaments = equipamentService.findAll();
 		return ResponseEntity.ok().body(listEquipaments);
+	}
+
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<Equipament> findById(@PathVariable Long id) {
+		Equipament equipament = equipamentService.findById(id);
+		return ResponseEntity.ok().body(equipament);
 	}
 
 }
