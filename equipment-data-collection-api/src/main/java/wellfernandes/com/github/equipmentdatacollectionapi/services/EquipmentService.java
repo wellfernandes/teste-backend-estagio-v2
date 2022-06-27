@@ -36,4 +36,10 @@ public class EquipmentService {
 		equipmentRepository.deleteById(id);
 	}
 
+	@Transactional
+	public Equipment updateEquipment(Long id, Equipment newEquipment) throws Exception {
+		Equipment equipment = findById(id);
+		equipment.setName(newEquipment.getName());
+		return equipmentRepository.save(equipment);
+	}
 }
